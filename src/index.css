@@ -247,6 +247,16 @@ a {
   cursor: pointer !important;
 }
 
+.menu-vertical {
+  transition: width 0.3s !important;
+}
+
+@media screen and (max-width: 475px) {
+  #user-name {
+    display: none;
+  }
+}
+
 @keyframes changeopacity {
   0% {
     background-color: #d9d9d9a8;

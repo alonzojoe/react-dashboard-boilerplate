@@ -1,6 +1,11 @@
 import Logo from "@/assets/images/react-logo.png";
 
 const Sidebar = () => {
+  const closeExpanded = () => {
+    const htmlEl = document.querySelector("html");
+    htmlEl.classList.remove("layout-menu-expanded");
+  };
+
   return (
     <aside
       id="layout-menu"
@@ -12,7 +17,7 @@ const Sidebar = () => {
         WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
       }}
     >
-      <div className="app-brand demo py-1 d-flex align-items-center">
+      <div className="app-brand demo py-3 d-flex align-items-center">
         <a className="app-brand-link" onClick={(e) => e.preventDefault()}>
           <span className="app-brand-logo demo">
             <img
@@ -48,7 +53,10 @@ const Sidebar = () => {
               </label>
             </div>
           </div>
-          <i className="ti ti-x d-block d-xl-none ti-sm align-middle btn-x"></i>
+          <i
+            className="ti ti-x d-block d-xl-none ti-sm align-middle btn-x"
+            onClick={closeExpanded}
+          ></i>
         </a>
       </div>
       <div className="menu-inner-shadow"></div>
