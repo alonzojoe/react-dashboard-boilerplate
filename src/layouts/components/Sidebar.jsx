@@ -13,7 +13,7 @@ const Sidebar = () => {
       }}
     >
       <div className="app-brand demo py-1 d-flex align-items-center">
-        <a className="app-brand-link">
+        <a className="app-brand-link" onClick={(e) => e.preventDefault()}>
           <span className="app-brand-logo demo">
             <img
               src={Logo}

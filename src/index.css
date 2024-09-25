@@ -204,13 +204,47 @@
   border-radius: 0 5px 5px 0;
 }
 
-.mawawala {
-  opacity: 0;
-  transition: 1s;
-}
-
 .cst-modalnaloader {
   animation: changeopacity 2s ease-in infinite;
+}
+
+.app-brand-logo.demo {
+  height: auto !important;
+}
+
+.switch {
+  padding: 0;
+  margin-right: 0;
+}
+
+.switch-toggle-slider {
+  border: 0.1rem solid #7367f0 !important;
+}
+
+.switch-off {
+  color: #fff;
+}
+
+.btn-x {
+  display: none;
+}
+
+@media (max-width: 1199.98px) {
+  .btn-x {
+    display: block;
+  }
+
+  .btn-switch {
+    display: none;
+  }
+}
+
+.switch-toggle-slider {
+  border: 0.1rem solid #319fe8 !important;
+}
+
+a {
+  cursor: pointer !important;
 }
 
 @keyframes changeopacity {
