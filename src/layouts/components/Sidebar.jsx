@@ -15,20 +15,20 @@ const Sidebar = () => {
       <div className="app-brand demo py-1 d-flex align-items-center">
         <a className="app-brand-link">
           <span className="app-brand-logo demo">
-            {/* <img
+            <img
               src={Logo}
               className="img-fluid"
               height="60"
               width="60"
               alt="app-logo"
-            /> */}
+            />
           </span>
           <span className="app-brand-text demo menu-text fw-bold">
             App Name
           </span>
         </a>
         <a
-          href="javascript:void(0);"
+          onClick={(e) => e.preventDefault()}
           className="layout-menu-toggle menu-link text-large ms-auto mb-2"
         >
           <div className="demo-vertical-spacing btn-switch">
@@ -37,8 +37,8 @@ const Sidebar = () => {
                 <input
                   type="checkbox"
                   className="switch-input switch-input"
-                  true-value={true}
-                  false-value={false}
+                  true-value="true"
+                  false-value="false"
                 />
                 <span className="switch-toggle-slider">
                   <span className="switch-on"></span>
@@ -57,19 +57,19 @@ const Sidebar = () => {
           <span className="menu-header-text">Home</span>
         </li>
         <li className="menu-item active">
-          <a href="javascript:void(0);" className="menu-link">
+          <a onClick={(e) => e.preventDefault()} className="menu-link">
             <i className="menu-icon tf-icons ti ti-dashboard"></i>
             <div>Dashboard</div>
           </a>
         </li>
         <li className="menu-item">
-          <a href="javascript:void(0);" className="menu-link">
+          <a onClick={(e) => e.preventDefault()} className="menu-link">
             <i className="menu-icon tf-icons ti ti-home"></i>
             <div>Home</div>
           </a>
         </li>
         <li className="menu-item">
-          <a href="javascript:void(0);" className="menu-link">
+          <a onClick={(e) => e.preventDefault()} className="menu-link">
             <i className="menu-icon tf-icons ti ti-file"></i>
             <div>Sample Page</div>
           </a>
@@ -78,7 +78,7 @@ const Sidebar = () => {
           <span className="menu-header-text">Auth</span>
         </li>
         <li className="menu-item">
-          <a href="javascript:void(0);" className="menu-link">
+          <a onClick={(e) => e.preventDefault()} className="menu-link">
             <i className="menu-icon tf-icons ti ti-logout"></i>
             <div data-i18n="logout">Logout</div>
           </a>
