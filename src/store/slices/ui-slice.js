@@ -14,7 +14,7 @@ const uiSlice = createSlice({
     setLayout(state, action) {
       const htmlEl = document.querySelector("html");
 
-      if (action.payload === "layout-menu") {
+      if (action.payload === "on") {
         htmlEl.classList.remove("layout-menu");
         htmlEl.classList.add("layout-menu-collapsed");
       } else {
@@ -27,4 +27,5 @@ const uiSlice = createSlice({
   },
 });
 
+export const { setLayout } = uiSlice.actions;
 export default uiSlice.reducer;

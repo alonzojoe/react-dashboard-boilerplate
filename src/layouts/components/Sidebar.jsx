@@ -1,7 +1,10 @@
+import { useDispatch, useSelector } from "react-redux";
 import Logo from "@/assets/images/react-logo.png";
 
 const Sidebar = () => {
   const htmlEl = document.querySelector("html");
+
+  const { layout } = useSelector((state) => state.ui);
 
   const closeExpanded = () => {
     htmlEl.classList.remove("layout-menu-expanded");
@@ -73,7 +76,7 @@ const Sidebar = () => {
       <div className="menu-inner-shadow"></div>
       <ul className="menu-inner py-1">
         <li className="menu-header small text-uppercase">
-          <span className="menu-header-text">Home</span>
+          <span className="menu-header-text">Home {layout}</span>
         </li>
         <li className="menu-item active">
           <a onClick={(e) => e.preventDefault()} className="menu-link">

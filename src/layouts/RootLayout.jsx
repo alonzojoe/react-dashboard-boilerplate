@@ -1,8 +1,16 @@
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import { useSetLayout } from "@/hooks/theme";
 import Navbar from "@/layouts/components/Navbar";
 import Sidebar from "@/layouts/components/Sidebar";
 
 const RootLayout = () => {
+  const setAppLayout = useSetLayout();
+
+  useEffect(() => {
+    setAppLayout();
+  }, [setAppLayout]);
+
   return (
     <div className="layout-wrapper layout-content-navbar">
       <div className="layout-container">
