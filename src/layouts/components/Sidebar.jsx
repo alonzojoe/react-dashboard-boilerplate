@@ -25,7 +25,7 @@ const Sidebar = () => {
       layout === "layout-menu-collapsed"
         ? "layout-menu"
         : "layout-menu-collapsed";
-    alert(reverseLayout);
+
     dispatch(setLayout(reverseLayout));
   };
 
@@ -86,7 +86,7 @@ const Sidebar = () => {
       <div className="menu-inner-shadow"></div>
       <ul className="menu-inner py-1">
         <li className="menu-header small text-uppercase" onClick={toggleLayout}>
-          <span className="menu-header-text">Home {layout}</span>
+          <span className="menu-header-text">Home</span>
         </li>
         <li className="menu-item active">
           <a onClick={(e) => e.preventDefault()} className="menu-link">
