@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
+import { setLayout } from "@/store/slices/ui-slice";
 import Logo from "@/assets/images/react-logo.png";
 
 const Sidebar = () => {
   const htmlEl = document.querySelector("html");
 
+  const dispatch = useDispatch();
   const { layout } = useSelector((state) => state.ui);
 
   const closeExpanded = () => {
@@ -16,6 +18,15 @@ const Sidebar = () => {
     } else {
       htmlEl.classList.remove("layout-menu-hover");
     }
+  };
+
+  const toggleLayout = () => {
+    const reverseLayout =
+      layout === "layout-menu-collapsed"
+        ? "layout-menu"
+        : "layout-menu-collapsed";
+    alert(reverseLayout);
+    dispatch(setLayout(reverseLayout));
   };
 
   return (
@@ -46,10 +57,7 @@ const Sidebar = () => {
             App Name
           </span>
         </a>
-        <a
-          onClick={(e) => e.preventDefault()}
-          className="layout-menu-toggle menu-link text-large ms-auto mb-2"
-        >
+        <a className="layout-menu-toggle menu-link text-large ms-auto mb-2">
           <div className="demo-vertical-spacing btn-switch">
             <div className="has-error">
               <label className="switch">
@@ -58,6 +66,8 @@ const Sidebar = () => {
                   className="switch-input switch-input"
                   true-value="true"
                   false-value="false"
+                  checked={layout === "layout-menu"}
+                  onChange={toggleLayout}
                 />
                 <span className="switch-toggle-slider">
                   <span className="switch-on"></span>
@@ -75,7 +85,7 @@ const Sidebar = () => {
       </div>
       <div className="menu-inner-shadow"></div>
       <ul className="menu-inner py-1">
-        <li className="menu-header small text-uppercase">
+        <li className="menu-header small text-uppercase" onClick={toggleLayout}>
           <span className="menu-header-text">Home {layout}</span>
         </li>
         <li className="menu-item active">
