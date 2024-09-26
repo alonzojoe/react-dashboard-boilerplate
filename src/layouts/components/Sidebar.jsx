@@ -1,9 +1,18 @@
 import Logo from "@/assets/images/react-logo.png";
 
 const Sidebar = () => {
+  const htmlEl = document.querySelector("html");
+
   const closeExpanded = () => {
-    const htmlEl = document.querySelector("html");
     htmlEl.classList.remove("layout-menu-expanded");
+  };
+
+  const hoverSidebar = (type) => {
+    if (type === "in") {
+      htmlEl.classList.add("layout-menu-hover");
+    } else {
+      htmlEl.classList.remove("layout-menu-hover");
+    }
   };
 
   return (
@@ -16,6 +25,8 @@ const Sidebar = () => {
         WebkitUserDrag: "none",
         WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
       }}
+      onMouseOver={() => hoverSidebar("in")}
+      onMouseOut={() => hoverSidebar("out")}
     >
       <div className="app-brand demo py-3 d-flex align-items-center">
         <a className="app-brand-link" onClick={(e) => e.preventDefault()}>
