@@ -52,8 +52,10 @@ const Navbar = () => {
 
           <li className="nav-item navbar-dropdown dropdown-user">
             <a
-              className="nav-link hide-arrow"
+              className="nav-link hide-arrow p-0"
               onClick={(e) => e.preventDefault()}
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
             >
               <div className="avatar avatar-online">
                 <img
@@ -63,6 +65,69 @@ const Navbar = () => {
                 />
               </div>
             </a>
+            <ul
+              className="dropdown-menu dropdown-menu-end"
+              data-bs-popper="static"
+            >
+              <li>
+                <a
+                  className="dropdown-item mt-0 waves-effect"
+                  href="pages-account-settings-account.html"
+                >
+                  <div className="d-flex align-items-center">
+                    <div className="flex-shrink-0 me-2">
+                      <div className="avatar avatar-online">
+                        <img
+                          src={Profile}
+                          alt="profile"
+                          className="rounded-circle"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex-grow-1">
+                      <h6 className="mb-0">Joenell Alonzo</h6>
+                      <small className="text-muted">Admin</small>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <div className="dropdown-divider my-1 mx-n2"></div>
+              </li>
+              <li>
+                <a
+                  className="dropdown-item waves-effect"
+                  href="pages-profile-user.html"
+                >
+                  <i className="ti ti-user me-3 ti-md"></i>
+                  <span className="align-middle">My Profile</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  className="dropdown-item waves-effect"
+                  href="pages-account-settings-account.html"
+                >
+                  <i className="ti ti-settings me-3 ti-md"></i>
+                  <span className="align-middle">Settings</span>
+                </a>
+              </li>
+              <li>
+                <div className="dropdown-divider my-1 mx-n2"></div>
+              </li>
+              <li>
+                <div className="d-grid px-2 pt-2 pb-1">
+                  <a
+                    className="btn btn-sm btn-danger d-flex waves-effect waves-light"
+                    href="auth-login-cover.html"
+                    target="_blank"
+                  >
+                    <small className="align-middle">Logout</small>
+                    <i className="ti ti-logout ms-2 ti-14px"></i>
+                  </a>
+                </div>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
