@@ -280,3 +280,10 @@ a {
 .swal2-shown {
   padding: 0 !important;
 }
+
+@media screen and (max-width: 1199px) {
+  .layout-navbar-fixed .layout-navbar {
+    position: fixed;
+    width: 100vw !important;
+  }
+}
