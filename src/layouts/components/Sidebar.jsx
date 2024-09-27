@@ -1,6 +1,28 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import { setLayout } from "@/store/slices/ui-slice";
 import Logo from "@/assets/images/react-logo.png";
+
+const routes = [
+  {
+    id: 1,
+    path: "/",
+    title: "Dashboard",
+    icon: "ti-dashboard",
+  },
+  {
+    id: 2,
+    path: "/sample",
+    title: "Sample Page 1",
+    icon: "ti-file",
+  },
+  {
+    id: 3,
+    path: "/sample-two",
+    title: "Sample Page 2",
+    icon: "ti-file",
+  },
+];
 
 const Sidebar = () => {
   const htmlEl = document.querySelector("html");
@@ -28,6 +50,8 @@ const Sidebar = () => {
 
     dispatch(setLayout(reverseLayout));
   };
+
+  const location = useLocation();
 
   return (
     <aside
@@ -86,26 +110,22 @@ const Sidebar = () => {
       <div className="menu-inner-shadow"></div>
       <ul className="menu-inner py-1">
         <li className="menu-header small text-uppercase" onClick={toggleLayout}>
-          <span className="menu-header-text">Home</span>
+          <span className="menu-header-text">Home {location.pathname}</span>
         </li>
-        <li className="menu-item active">
-          <a onClick={(e) => e.preventDefault()} className="menu-link">
-            <i className="menu-icon tf-icons ti ti-dashboard"></i>
-            <div>Dashboard</div>
-          </a>
-        </li>
-        <li className="menu-item">
-          <a onClick={(e) => e.preventDefault()} className="menu-link">
-            <i className="menu-icon tf-icons ti ti-home"></i>
-            <div>Home</div>
-          </a>
-        </li>
-        <li className="menu-item">
-          <a onClick={(e) => e.preventDefault()} className="menu-link">
-            <i className="menu-icon tf-icons ti ti-file"></i>
-            <div>Sample Page</div>
-          </a>
-        </li>
+        {routes.map((route) => {
+          const activeLink = location.pathname === route.path;
+          return (
+            <li
+              className={`menu-item ${activeLink ? "active" : ""}`}
+              key={route.id}
+            >
+              <Link to={route.path} className="menu-link">
+                <i className={`menu-icon tf-icons ti ${route.icon}`}></i>
+                <div>{route.title}</div>
+              </Link>
+            </li>
+          );
+        })}
         <li className="menu-header small text-uppercase">
           <span className="menu-header-text">Auth</span>
         </li>
