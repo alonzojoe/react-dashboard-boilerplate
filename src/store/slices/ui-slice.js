@@ -5,6 +5,7 @@ const storedLayout = getStorageItem("layout");
 
 const initialState = {
   layout: storedLayout ? storedLayout : "layout-menu",
+  navbarTitle: "Dashboard",
 };
 
 const uiSlice = createSlice({
@@ -24,8 +25,11 @@ const uiSlice = createSlice({
       setStorageItem("layout", action.payload);
       state.layout = action.payload;
     },
+    setNavbarTitle(state, action) {
+      state.navbarTitle = action.payload;
+    },
   },
 });
 
-export const { setLayout } = uiSlice.actions;
+export const { setLayout, setNavbarTitle } = uiSlice.actions;
 export default uiSlice.reducer;

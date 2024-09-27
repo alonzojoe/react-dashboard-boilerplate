@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import { setLayout } from "@/store/slices/ui-slice";
+import { setLayout, setNavbarTitle } from "@/store/slices/ui-slice";
 import Logo from "@/assets/images/react-logo.png";
 
 const routes = [
@@ -25,9 +26,22 @@ const routes = [
 ];
 
 const Sidebar = () => {
+  const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const currentRoute = routes.find(
+      (route) => route.path === location.pathname
+    );
+
+    if (currentRoute) {
+      document.title = currentRoute.title;
+      dispatch(setNavbarTitle(currentRoute.title));
+    }
+  }, [location.pathname]);
+
   const htmlEl = document.querySelector("html");
 
-  const dispatch = useDispatch();
   const { layout } = useSelector((state) => state.ui);
 
   const closeExpanded = () => {
@@ -50,8 +64,6 @@ const Sidebar = () => {
 
     dispatch(setLayout(reverseLayout));
   };
-
-  const location = useLocation();
 
   return (
     <aside
@@ -110,7 +122,7 @@ const Sidebar = () => {
       <div className="menu-inner-shadow"></div>
       <ul className="menu-inner py-1">
         <li className="menu-header small text-uppercase" onClick={toggleLayout}>
-          <span className="menu-header-text">Home {location.pathname}</span>
+          <span className="menu-header-text">Home</span>
         </li>
         {routes.map((route) => {
           const activeLink = location.pathname === route.path;

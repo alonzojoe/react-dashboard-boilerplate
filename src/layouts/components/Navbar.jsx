@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import Profile from "@/assets/images/default-profile.jpeg";
 
 const Navbar = () => {
+  const { navbarTitle } = useSelector((state) => state.ui);
+
   const expandLayout = () => {
     const htmlEl = document.querySelector("html");
     htmlEl.classList.add("layout-menu-expanded");
@@ -24,7 +26,7 @@ const Navbar = () => {
       >
         <div className="navbar-nav align-items-center">
           <div className="nav-item navbar-search-wrapper mb-2">
-            <h4 className="mt-4 fw-bold">Dashboard</h4>
+            <h4 className="mt-4 fw-bold">{navbarTitle}</h4>
           </div>
         </div>
 
