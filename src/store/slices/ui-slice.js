@@ -40,11 +40,13 @@ const uiSlice = createSlice({
       let link = document.getElementById("dark-theme");
 
       if (action.payload === "dark") {
-        link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.id = "dark-theme";
-        link.href = "/style/core-dark.css";
-        head.appendChild(link);
+        if (!link) {
+          link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.id = "dark-theme";
+          link.href = "/style/core-dark.css";
+          head.appendChild(link);
+        }
       } else {
         if (link) {
           head.removeChild(link);

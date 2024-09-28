@@ -1,12 +1,21 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { changeTheme } from "@/store/slices/ui-slice";
 import Profile from "@/assets/images/default-profile.jpeg";
 
 const Navbar = () => {
-  const { navbarTitle } = useSelector((state) => state.ui);
+  const dispatch = useDispatch();
+  const { navbarTitle, appTheme } = useSelector((state) => state.ui);
 
   const expandLayout = () => {
     const htmlEl = document.querySelector("html");
     htmlEl.classList.add("layout-menu-expanded");
+  };
+
+  const themeIcon = appTheme === "dark" ? "ti-moon-filled" : "ti-sun-filled";
+
+  const handleChangeTheme = () => {
+    const reverseTheme = appTheme === "dark" ? "light" : "dark";
+    dispatch(changeTheme(reverseTheme));
   };
 
   return (
@@ -32,8 +41,8 @@ const Navbar = () => {
 
         <ul className="navbar-nav flex-row align-items-center ms-auto">
           <li className="nav-item dropdown-language dropdown me-2 me-xl-0">
-            <a className="nav-link hide-arrow">
-              <i className="rounded-circle ti-md ti ti-sun-filled"></i>
+            <a className="nav-link hide-arrow" onClick={handleChangeTheme}>
+              <i className={`rounded-circle ti-md ti ${themeIcon}`}></i>
             </a>
           </li>
           <li
