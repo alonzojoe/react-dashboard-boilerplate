@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getStorageItem, setStorageItem } from "@/lib/utils";
+import { getStorageItem, setStorageItem, getDeviceTheme } from "@/lib/utils";
 
 const storedLayout = getStorageItem("layout");
+const storedTheme = getStorageItem("appTheme");
+const deviceTheme = getDeviceTheme();
 
 const initialState = {
   layout: storedLayout ? storedLayout : "layout-menu",
+  appTheme: storedTheme ? storedTheme : deviceTheme,
   navbarTitle: "Dashboard",
 };
 
@@ -28,6 +31,25 @@ const uiSlice = createSlice({
     setNavbarTitle(state, action) {
       state.navbarTitle = action.payload;
       document.title = `App Name | ${action.payload}`;
+    },
+    changeTheme(state, action) {
+      state.appTheme = action.payload;
+      setStorageItem("appTheme", action.payload);
+
+      const head = document.head;
+      let link = document.getElementById("dark-theme");
+
+      if (action.payload === "dark") {
+        link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.id = "dark-theme";
+        link.href = "/style/core-dark.css";
+        head.appendChild(link);
+      } else {
+        if (link) {
+          head.removeChild(link);
+        }
+      }
     },
   },
 });
