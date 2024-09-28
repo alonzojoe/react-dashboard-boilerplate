@@ -15,3 +15,9 @@ export const removeStorageItem = (key) => {
     console.log(error);
   }
 };
+
+export const getDeviceTheme = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
