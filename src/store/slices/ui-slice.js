@@ -54,5 +54,5 @@ const uiSlice = createSlice({
   },
 });
 
-export const { setLayout, setNavbarTitle } = uiSlice.actions;
+export const { setLayout, setNavbarTitle, changeTheme } = uiSlice.actions;
 export default uiSlice.reducer;

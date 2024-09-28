@@ -1,6 +1,6 @@
 import { useCallback, useDebugValue } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setLayout } from "@/store/slices/ui-slice";
+import { setLayout, changeTheme } from "@/store/slices/ui-slice";
 import { getStorageItem } from "@/lib/utils";
 
 export const useSetLayout = () => {
@@ -23,4 +23,20 @@ export const useSetLayout = () => {
   }, [storedLayout, setCollapsed, appLayout]);
 
   return setAppLayout;
+};
+
+export const useSetTheme = () => {
+  const dispatch = useDispatch();
+  const storedTheme = getStorageItem("appTheme");
+  const appTheme = useSelector((state) => state.ui.appTheme);
+
+  const setDarkTheme = useCallback(() => {
+    dispatch(changeTheme("dark"));
+  }, [dispatch]);
+
+  const setAppTheme = useCallback(() => {
+    if (storedTheme === "dark" || appTheme === "dark") setDarkTheme();
+  }, [storedTheme, setDarkTheme, appTheme]);
+
+  return setAppTheme;
 };
