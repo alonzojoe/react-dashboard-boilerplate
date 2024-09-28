@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { useSetLayout } from "@/hooks/theme";
-import Navbar from "@/layouts/components/Navbar";
-import Sidebar from "@/layouts/components/Sidebar";
+import Navbar from "@/layouts/components/Navbar/Navbar";
+import Sidebar from "@/layouts/components/Sidebar/Sidebar";
 
 const RootLayout = () => {
   const setAppLayout = useSetLayout();

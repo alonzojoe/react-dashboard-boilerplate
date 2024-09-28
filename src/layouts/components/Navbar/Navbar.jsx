@@ -32,14 +32,10 @@ const Navbar = () => {
 
         <ul className="navbar-nav flex-row align-items-center ms-auto">
           <li className="nav-item dropdown-language dropdown me-2 me-xl-0">
-            <a
-              className="nav-link hide-arrow"
-              onClick={(e) => e.preventDefault()}
-            >
-              <i className="ti rounded-circle ti-md"></i>
+            <a className="nav-link hide-arrow">
+              <i className="rounded-circle ti-md ti ti-sun-filled"></i>
             </a>
           </li>
-
           <li
             className="nav-item dropdown-language dropdown me-2 me-xl-0"
             id="user-name"
@@ -72,10 +68,7 @@ const Navbar = () => {
               data-bs-popper="static"
             >
               <li>
-                <a
-                  className="dropdown-item mt-0 waves-effect"
-                  href="pages-account-settings-account.html"
-                >
+                <a className="dropdown-item mt-0 waves-effect" href="#">
                   <div className="d-flex align-items-center">
                     <div className="flex-shrink-0 me-2">
                       <div className="avatar avatar-online">
@@ -97,19 +90,13 @@ const Navbar = () => {
                 <div className="dropdown-divider my-1 mx-n2"></div>
               </li>
               <li>
-                <a
-                  className="dropdown-item waves-effect"
-                  href="pages-profile-user.html"
-                >
+                <a className="dropdown-item waves-effect" href="#">
                   <i className="ti ti-user me-3 ti-md"></i>
                   <span className="align-middle">My Profile</span>
                 </a>
               </li>
               <li>
-                <a
-                  className="dropdown-item waves-effect"
-                  href="pages-account-settings-account.html"
-                >
+                <a className="dropdown-item waves-effect" href="#">
                   <i className="ti ti-settings me-3 ti-md"></i>
                   <span className="align-middle">Settings</span>
                 </a>
@@ -121,8 +108,7 @@ const Navbar = () => {
                 <div className="d-grid px-2 pt-2 pb-1">
                   <a
                     className="btn btn-sm btn-danger d-flex waves-effect waves-light"
-                    href="auth-login-cover.html"
-                    target="_blank"
+                    href="#"
                   >
                     <small className="align-middle">Logout</small>
                     <i className="ti ti-logout ms-2 ti-14px"></i>
