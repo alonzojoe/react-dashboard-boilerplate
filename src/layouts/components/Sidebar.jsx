@@ -35,7 +35,6 @@ const Sidebar = () => {
     );
 
     if (currentRoute) {
-      document.title = currentRoute.title;
       dispatch(setNavbarTitle(currentRoute.title));
     }
   }, [location.pathname]);

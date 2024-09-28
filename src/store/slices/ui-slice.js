@@ -27,6 +27,7 @@ const uiSlice = createSlice({
     },
     setNavbarTitle(state, action) {
       state.navbarTitle = action.payload;
+      document.title = `App Name | ${action.payload}`;
     },
   },
 });
